@@ -14,4 +14,3 @@ themes/*
 .settings/
 .svn/
 vendor/
-composer.lock

@@ -37,6 +37,23 @@ class Project extends Common
     public function __construct()
     {
         $this->projects = getJSON('projects.php');
+		if (is_dir(WORKSPACE) && $ws = opendir(WORKSPACE)) {
+			$added1 = FALSE;
+	        while (($file = readdir($ws)) !== false) {
+	        	if ($file === '.' || $file === '..') continue;
+				if (is_dir(WORKSPACE . '/' . $file)) {
+					$this->name = $file;
+					$this->path = $file;
+					if ($this->checkDuplicate()) {
+	                    $this->projects[] = array("name"=>$this->name,"path"=>$this->path);
+	                    $added1 = TRUE;
+					}
+				}
+	        }
+	        closedir($ws);
+	        if ($added1)
+		        saveJSON('projects.php', $this->projects);
+		}
         if (file_exists(BASE_PATH . "/data/" . $_SESSION['user'] . '_acl.php')) {
             $this->assigned = getJSON($_SESSION['user'] . '_acl.php');
         }

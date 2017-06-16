@@ -54,7 +54,8 @@ class Market extends Common
                             if (substr($tmp[0]['url'], -4) == '.git') {
                                 $tmp[0]['url'] = substr($tmp[0]['url'], 0, -4);
                             }
-                            $optout .= rtrim($key, "s").":".array_pop(explode('/', $tmp[0]['url'])).",";
+                            $url_parts = explode('/', $tmp[0]['url']);
+                            $optout .= rtrim($key, "s").":".array_pop($url_parts).",";
                         }
                     }
                 }

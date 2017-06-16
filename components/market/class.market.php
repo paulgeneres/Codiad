@@ -60,7 +60,9 @@ class Market extends Common
                     }
                 }
             }
-            file_put_contents(DATA.'/cache/market.current', file_get_contents($this->url.'/?o='.substr($optout, 0, -1)));
+            $market_data = file_get_contents($this->url.'/?o='.substr($optout, 0, -1));
+            $market_data = preg_replace('/^(.*<br \/>\n)+/', '', $market_data);
+            file_put_contents(DATA.'/cache/market.current', $market_data);
             copy(DATA.'/cache/market.current', DATA.'/cache/market.last');
         } else {
             if (time()-filemtime(DATA.'/cache/market.current') > 24 * 3600) {

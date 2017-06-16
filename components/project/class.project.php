@@ -23,6 +23,7 @@ class Project extends Common
     public $no_return    = false;
     public $assigned     = false;
     public $command_exec = '';
+    public $output       = false;
 
     //////////////////////////////////////////////////////////////////
     // METHODS
@@ -138,7 +139,7 @@ class Project extends Common
                 $pass = $this->checkDuplicate();
                 if ($pass) {
                     if (!$this->isAbsPath($this->path)) {
-                        mkdir(WORKSPACE . '/' . $this->path);
+                        @mkdir(WORKSPACE . '/' . $this->path);
                     } else {
                         if (defined('WHITEPATHS')) {
                             $allowed = false;
@@ -287,18 +288,20 @@ class Project extends Common
         if (function_exists('system')) {
             ob_start();
             system($this->command_exec);
-            ob_end_clean();
+            $this->output = ob_get_contents();
+            ob_end_flush();
         } //passthru
         elseif (function_exists('passthru')) {
             ob_start();
             passthru($this->command_exec);
-            ob_end_clean();
+            $this->output = ob_get_contents();
+            ob_end_flush();
         } //exec
         elseif (function_exists('exec')) {
             exec($this->command_exec, $this->output);
         } //shell_exec
         elseif (function_exists('shell_exec')) {
-            shell_exec($this->command_exec);
+            $this->output = shell_exec($this->command_exec);
         }
     }
 }

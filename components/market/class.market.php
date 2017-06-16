@@ -54,12 +54,15 @@ class Market extends Common
                             if (substr($tmp[0]['url'], -4) == '.git') {
                                 $tmp[0]['url'] = substr($tmp[0]['url'], 0, -4);
                             }
-                            $optout .= rtrim($key, "s").":".array_pop(explode('/', $tmp[0]['url'])).",";
+                            $url_parts = explode('/', $tmp[0]['url']);
+                            $optout .= rtrim($key, "s").":".array_pop($url_parts).",";
                         }
                     }
                 }
             }
-            file_put_contents(DATA.'/cache/market.current', file_get_contents($this->url.'/?o='.substr($optout, 0, -1)));
+            $market_data = file_get_contents($this->url.'/?o='.substr($optout, 0, -1));
+            $market_data = preg_replace('/^(.*<br \/>\n)+/', '', $market_data);
+            file_put_contents(DATA.'/cache/market.current', $market_data);
             copy(DATA.'/cache/market.current', DATA.'/cache/market.last');
         } else {
             if (time()-filemtime(DATA.'/cache/market.current') > 24 * 3600) {

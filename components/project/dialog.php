@@ -169,7 +169,7 @@
             <button class="btn-left"><?php i18n("Create Project"); ?></button>
 			<button onclick="$('#git-clone').slideDown(300); $(this).hide(); return false;" class="btn-mid"><?php i18n("...From Git Repo"); ?></button>
 			<button class="btn-right" onclick="<?php echo $action;?>return false;"><?php i18n("Cancel"); ?></button>
-            <form>
+            </form>
             <?php
             break;
             
@@ -183,7 +183,7 @@
         <label><span class="icon-pencil"></span><?php i18n("Rename Project"); ?></label>    
         <input type="text" name="project_name" autofocus="autofocus" autocomplete="off" value="<?php echo($_GET['name']); ?>">  
         <button class="btn-left"><?php i18n("Rename"); ?></button>&nbsp;<button class="btn-right" onclick="codiad.modal.unload(); return false;"><?php i18n("Cancel"); ?></button>
-        <form>
+        </form>
         <?php
         break;       
             

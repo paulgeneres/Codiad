@@ -182,10 +182,10 @@ class Market extends Common
                 $remoteurl = str_replace('github.com', 'raw.github.com', $data['url']).'/master/'.rtrim($data['type'], 's').'.json';
               
                 if (!file_exists(DATA.'/cache/'.$data['folder'].'.current')) {
-                    file_put_contents(DATA.'/cache/'.$data['folder'].'.current', file_get_contents($remoteurl));
+                    file_put_contents(DATA.'/cache/'.$data['folder'].'.current', @file_get_contents($remoteurl));
                 } else {
                     if (time()-filemtime(DATA.'/cache/'.$data['folder'].'.current') > 24 * 3600) {
-                        file_put_contents(DATA.'/cache/'.$data['folder'].'.current', file_get_contents($remoteurl));
+                        file_put_contents(DATA.'/cache/'.$data['folder'].'.current', @file_get_contents($remoteurl));
                     }
                 }
               

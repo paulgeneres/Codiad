@@ -190,7 +190,7 @@ if(isset($_SESSION['theme'])) {
                 <div id="finder-wrapper">
                    <a id="finder-options" class="icon icon-cog"></a>
                    <div id="finder-inner-wrapper">
-                   <input type="text" id="finder"></input>
+                   <input type="text" id="finder">
                    </div>
                    <ul id="finder-options-menu" class="options-menu">
                       <li class="chosen"><a data-option="left_prefix"><?php i18n("Prefix"); ?></a></li>
@@ -253,10 +253,10 @@ if(isset($_SESSION['theme'])) {
                 
                     <div class="project-list-title">
                         <h2><?php i18n("Projects"); ?></h2>
-                        <a id="projects-collapse" class="icon-down-dir icon" alt="<?php i18n("Collapse"); ?>"></a>
+                        <a id="projects-collapse" class="icon-down-dir icon"></a>
                         <?php if(checkAccess()) { ?>
                         <a id="projects-manage" class="icon-archive icon"></a>
-                        <a id="projects-create" class="icon-plus icon" alt="<?php i18n("Create Project"); ?>"></a>
+                        <a id="projects-create" class="icon-plus icon"></a>
                         <?php } ?>
                     </div>
                     
@@ -393,7 +393,11 @@ if(isset($_SESSION['theme'])) {
     </div>
 
     <div id="modal-overlay"></div>
-    <div id="modal"><div id="close-handle" class="icon-cancel" onclick="codiad.modal.unload();"></div><div id="drag-handle" class="icon-location"></div><div id="modal-content"></div></div>
+    <div id="modal">
+        <div id="close-handle" class="icon-cancel" onclick="codiad.modal.unload();"></div>
+        <div id="drag-handle" class="icon-location"></div>
+        <div id="modal-content"></div>
+    </div>
 
     <iframe id="download"></iframe>
 
@@ -412,13 +416,13 @@ if(isset($_SESSION['theme'])) {
         // JS
         foreach($components as $component){
             if(file_exists(COMPONENTS . "/" . $component . "/init.js")){
-                echo('<script src="components/'.$component.'/init.js"></script>"');
+                echo('<script src="components/'.$component.'/init.js"></script>');
             }
         }
         
         foreach($plugins as $plugin){
             if(file_exists(PLUGINS . "/" . $plugin . "/init.js")){
-                echo('<script src="plugins/'.$plugin.'/init.js"></script>"');
+                echo('<script src="plugins/'.$plugin.'/init.js"></script>');
             }
         }
 

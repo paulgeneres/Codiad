@@ -92,7 +92,7 @@
             <input type="password" name="password2">
             <button class="btn-left"><?php i18n("Create Account"); ?></button>
 			<button class="btn-right" onclick="codiad.user.list();return false;"><?php i18n("Cancel"); ?></button>
-            <form>
+            </form>
             <?php
             break;
 
@@ -132,6 +132,7 @@
             </div>
             <button class="btn-left"><?php i18n("Confirm"); ?></button>
 			<button class="btn-right" onclick="codiad.user.list();return false;"><?php i18n("Close"); ?></button>
+            </form>
             <?php
             break;
 
@@ -148,6 +149,7 @@
             <pre><?php i18n("Account:"); ?> <?php echo($_GET['username']); ?></pre>
             <button class="btn-left"><?php i18n("Confirm"); ?></button>
 			<button class="btn-right" onclick="codiad.user.list();return false;"><?php i18n("Cancel"); ?></button>
+            </form>
             <?php
             break;
 
@@ -170,8 +172,9 @@
             <input type="password" name="password1" autofocus="autofocus">
             <label><?php i18n("Confirm Password"); ?></label>
             <input type="password" name="password2">
-          <button class="btn-left"><?php i18n("Change %{username}%&apos;s Password", array("username" => ucfirst($username))) ?></button>
+            <button class="btn-left"><?php i18n("Change %{username}%&apos;s Password", array("username" => ucfirst($username))) ?></button>
 			<button class="btn-right" onclick="codiad.modal.unload();return false;"><?php i18n("Cancel"); ?></button>
+            </form>
             <?php
             break;
 

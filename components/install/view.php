@@ -58,29 +58,29 @@ if (!$workspace || !$data || !$config || $register || $newrelic) {
     <p><?php i18n("Please make sure the following exist and are writeable:"); ?></p>
     <div class="install_issues">
         <p>[SYSTEM]/config.php - <?php if ($config) {
-            echo '<font style="color:green">PASSED</font>';
+            echo '<span style="color:green">PASSED</span>';
 } else {
-    echo '<font style="color:red">ERROR</font>';
+    echo '<span style="color:red">ERROR</span>';
 } ?></p>
         <p>[SYSTEM]/workspace - <?php if ($workspace) {
-            echo '<font style="color:green">PASSED</font>';
+            echo '<span style="color:green">PASSED</span>';
 } else {
-    echo '<font style="color:red">ERROR</font>';
+    echo '<span style="color:red">ERROR</span>';
 } ?></p>
         <p>[SYSTEM]/plugins - <?php if ($plugins) {
-            echo '<font style="color:green">PASSED</font>';
+            echo '<span style="color:green">PASSED</span>';
 } else {
-    echo '<font style="color:red">ERROR</font>';
+    echo '<span style="color:red">ERROR</span>';
 } ?></p>
         <p>[SYSTEM]/themes - <?php if ($themes) {
-            echo '<font style="color:green">PASSED</font>';
+            echo '<span style="color:green">PASSED</span>';
 } else {
-    echo '<font style="color:red">ERROR</font>';
+    echo '<span style="color:red">ERROR</span>';
 } ?></p>
         <p>[SYSTEM]/data - <?php if ($data) {
-            echo '<font style="color:green">PASSED</font>';
+            echo '<span style="color:green">PASSED</span>';
 } else {
-    echo '<font style="color:red">ERROR</font>';
+    echo '<span style="color:red">ERROR</span>';
 } ?></p> 
     </div>
     <?php if ($register || $newrelic) { ?>

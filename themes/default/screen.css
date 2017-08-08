@@ -60,9 +60,11 @@ div {
 
 a,a:link,a:visited {
     cursor: pointer;
+    color: white;
 }
 
-a:hover,a:active {;
+a:hover,a:active {
+	color: white;
 }
 
 .hide {

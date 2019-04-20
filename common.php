@@ -64,7 +64,7 @@
             if(!defined('THEME')){
                 define("THEME", "default");
             }
-            
+
             if(!defined('LANGUAGE')){
                 define("LANGUAGE", "en");
             }
@@ -86,7 +86,7 @@
             session_name(md5(BASE_PATH));
 
             session_start();
-            
+
             //Check for external authentification
             if(defined('AUTH_PATH')){
                 require_once(AUTH_PATH);
@@ -103,7 +103,7 @@
         //////////////////////////////////////////////////////////////////
         // Read Content of directory
         //////////////////////////////////////////////////////////////////
-        
+
         public static function readDirectory($foldername) {
           $tmp = array();
           $allFiles = scandir($foldername);
@@ -285,9 +285,9 @@
         //////////////////////////////////////////////////////////////////
 
         public static function isAbsPath( $path ) {
-            return ($path[0] === '/' || $path[1] === ':')?true:false;
+            return (strlen($path) >= 1 && $path[0] === '/')?true:false;
         }
-        
+
         //////////////////////////////////////////////////////////////////
         // Check If WIN based system
         //////////////////////////////////////////////////////////////////

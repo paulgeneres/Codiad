@@ -49,7 +49,7 @@ define("WORKSPACE", BASE_PATH . "/workspace");
 define("WSURL", BASE_URL . "/workspace");
 
 // Marketplace
-//define("MARKETURL", "http://market.codiad.com/json");
+//define("MARKETURL", "http://market.codiad.reslar.com/json");
 
 // Update Check
 //define("UPDATEURL", "http://update.codiad.com/?v={VER}&o={OS}&p={PHP}&w={WEB}&a={ACT}");
